@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "TikTakVideoService";
+
+package videoGRPC;
+
+service Video{
+	rpc SendManifest(VideoRequest) returns (stream VideoResponse){}
+}
+
+message VideoRequest{
+	string id = 1;
+}
+
+message VideoResponse{
+	bytes blobdata = 1;
+}
